@@ -1,7 +1,5 @@
+import 'package:fluter_sample_test/DemoStackLayout.dart';
 import 'package:flutter/material.dart';
-
-import 'DemoContainerLayout.dart';
-import 'RowColumnLayout.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,7 +13,7 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       home: SafeArea(
           child: Scaffold(
-        body: DemoContainerLayout(),
+        body: DemoStackLayout(),
       )),
     );
   }
