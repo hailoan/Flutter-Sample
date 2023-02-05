@@ -1,4 +1,4 @@
-import 'package:fluter_sample_test/DemoStackLayout.dart';
+import 'package:fluter_sample_test/DemoConstraintBox.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       home: SafeArea(
           child: Scaffold(
-        body: DemoStackLayout(),
+        body: DemoConstraintBox(),
       )),
     );
   }
