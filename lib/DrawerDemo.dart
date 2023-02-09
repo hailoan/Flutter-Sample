@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class DrawerDemo extends StatelessWidget {
   DrawerDemo({super.key});
@@ -25,15 +26,7 @@ class DrawerDemo extends StatelessWidget {
           children: _generateDrawerList(),
         ),
       ),
-      body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(
-                      currentMenu == null ? 'empty' : currentMenu!.title)));
-            },
-            child: const Text('Snacked')),
-      ),
+      body: HomeScreen(),
     );
   }
 
@@ -106,7 +99,10 @@ class ViewItemMenuBase extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Icon(itemMenu.icon),
-      title: Text(itemMenu.title),
+      title: Text(
+        itemMenu.title,
+        style: Theme.of(context).textTheme.labelMedium,
+      ),
       onTap: () {
         onClickItem?.call(itemMenu);
       },
@@ -134,9 +130,9 @@ class HeaderDrawer extends StatelessWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 10),
-                  child: const Text(
+                  child: Text(
                     'Gmail',
-                    style: TextStyle(fontSize: 20),
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 )
               ],
@@ -151,6 +147,42 @@ class HeaderDrawer extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  DeviceOrientation? current;
+  @override
+  Widget build(BuildContext context) {
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return Stack(
+          children: [
+            GridView.count(
+              crossAxisCount: orientation == Orientation.portrait ? 3 : 6,
+              children:
+                  List.generate(20, (index) => Image.asset('images/gmail.png')),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: FloatingActionButton(
+                onPressed: () {
+                  current = current == DeviceOrientation.landscapeLeft
+                      ? DeviceOrientation.portraitUp
+                      : DeviceOrientation.landscapeLeft;
+
+                  SystemChrome.setPreferredOrientations([
+                    current!,
+                    DeviceOrientation.portraitDown,
+                  ]);
+                },
+                child: const Icon(Icons.flip),
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 }

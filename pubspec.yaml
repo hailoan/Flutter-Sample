@@ -19,3 +19,12 @@ flutter:
   uses-material-design: true
   assets:            
     - images/gmail.png
+
+  fonts:
+    - family: sf
+      fonts:
+        - asset: fonts/sf_pro_medium.ttf
+          weight: 500
+        - asset: fonts/sf_pro_regular.ttf
+        - asset: fonts/sf_pro_semibold.ttf
+          weight: 600
