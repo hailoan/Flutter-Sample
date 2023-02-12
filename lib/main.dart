@@ -22,10 +22,22 @@ class MainApp extends StatelessWidget {
               labelSmall: TextStyle(fontSize: 14))),
       home: Container(
         color: Colors.white,
-        child: const Center(
-          child: DownloadButton(status: DownloadStatus.done),
+        child: Center(
+          child: DownloadButton(status: DownloadStatus.done, onCancel: _openCancel(), onOpen: _openApp(), onStarting: _openDownload(),),
         ),
       ),
     );
+  }
+
+  void _openDownload() {
+
+  }
+
+  void _openCancel() {
+
+  }
+
+  void _openApp() {
+
   }
 }
