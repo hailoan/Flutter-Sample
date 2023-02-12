@@ -115,38 +115,36 @@ class HeaderDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Image.asset(
-                  'images/gmail.png',
-                  width: 34,
-                  height: 34,
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Image.asset(
+                'images/gmail.png',
+                width: 34,
+                height: 34,
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 10),
+                child: Text(
+                  'Gmail',
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-                Container(
-                  margin: const EdgeInsets.only(left: 10),
-                  child: Text(
-                    'Gmail',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
-          SizedBox.fromSize(
-            size: const Size.fromHeight(16),
-          ),
-          const Divider(
-            height: 1,
-            color: Colors.grey,
-          )
-        ],
-      ),
+        ),
+        SizedBox.fromSize(
+          size: const Size.fromHeight(16),
+        ),
+        const Divider(
+          height: 1,
+          color: Colors.grey,
+        )
+      ],
     );
   }
 }
@@ -162,7 +160,7 @@ class HomeScreen extends StatelessWidget {
             GridView.count(
               crossAxisCount: orientation == Orientation.portrait ? 3 : 6,
               children:
-                  List.generate(20, (index) => Image.asset('images/gmail.png')),
+                  List.generate(10, (index) => Image.asset('images/gmail.png')),
             ),
             Align(
               alignment: Alignment.bottomRight,

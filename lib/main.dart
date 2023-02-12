@@ -1,3 +1,4 @@
+import 'package:fluter_sample_test/DownloadDemo.dart';
 import 'package:flutter/material.dart';
 
 import 'DrawerDemo.dart';
@@ -19,7 +20,12 @@ class MainApp extends StatelessWidget {
               labelMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
               titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
               labelSmall: TextStyle(fontSize: 14))),
-      home: DrawerDemo(),
+      home: Container(
+        color: Colors.white,
+        child: const Center(
+          child: DownloadButton(status: DownloadStatus.done),
+        ),
+      ),
     );
   }
 }
