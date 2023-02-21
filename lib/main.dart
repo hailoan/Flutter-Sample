@@ -23,21 +23,26 @@ class MainApp extends StatelessWidget {
       home: Container(
         color: Colors.white,
         child: Center(
-          child: DownloadButton(status: DownloadStatus.done, onCancel: _openCancel(), onOpen: _openApp(), onStarting: _openDownload(),),
+          child: DownloadButton(
+            status: DownloadStatus.downloading,
+            onCancel: () => _openCancel(),
+            onOpen: () => _openApp(),
+            onStarting: () => _openCancel(),
+          ),
         ),
       ),
     );
   }
 
   void _openDownload() {
-
+    print('open download');
   }
 
   void _openCancel() {
-
+    print('_openCancel');
   }
 
   void _openApp() {
-
+    print('_openApp');
   }
 }

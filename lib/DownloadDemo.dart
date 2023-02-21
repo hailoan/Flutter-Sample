@@ -20,9 +20,9 @@ class DownloadButton extends StatelessWidget {
 
   final double progress;
 
-  final VoidCallbackAction onCancel;
-  final VoidCallbackAction onOpen;
-  final VoidCallbackAction onStarting;
+  final VoidCallback onCancel;
+  final VoidCallback onOpen;
+  final VoidCallback onStarting;
 
   bool get _isDownloading => status == DownloadStatus.downloading;
 
@@ -169,7 +169,7 @@ class Download {
   String? short;
   String? url;
   DownloadStatus status = DownloadStatus.none;
-  int progress = 0;
+  int progress = 160;
 }
 
 enum DownloadStatus { none, fetching, downloading, done }
