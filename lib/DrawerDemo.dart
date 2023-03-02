@@ -1,8 +1,9 @@
+import 'package:fluter_sample_test/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class DrawerDemo extends StatelessWidget {
-  DrawerDemo({super.key});
+  DrawerDemo({required this.onClickItem, super.key});
 
   BuildContext? context;
 
@@ -13,9 +14,17 @@ class DrawerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     this.context = context;
+    print('check data ${onClickItem == null}');
     onClickItem = (p0) {
       Navigator.pop(context);
       currentMenu = p0;
+      switch (currentMenu?.type) {
+        case ItemType.setting:
+          {
+            Navigator.pushNamed(context, routeSetting);
+            break;
+          }
+      }
     };
     return Scaffold(
       appBar: AppBar(
@@ -104,6 +113,8 @@ class ViewItemMenuBase extends StatelessWidget {
         style: Theme.of(context).textTheme.labelMedium,
       ),
       onTap: () {
+        Navigator.pop(context);
+        print('call on click ${onClickItem == null}');
         onClickItem?.call(itemMenu);
       },
     );
