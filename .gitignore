@@ -19,3 +19,7 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+
+# "JSON to Dart Model" generator tracker files locations.
+/.json_models/
+models.jsonc
